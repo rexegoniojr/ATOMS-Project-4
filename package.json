@@ -1,0 +1,27 @@
+{
+  "name": "atoms",
+  "version": "2.13.24",
+  "description": "ATOMS Web Application",
+  "main": "index.js",
+  "scripts": {
+    "install-backend": "cd backend && npm install",
+    "backend": "cd backend && nodemon index.js",
+    "start-pm2": "cd backend && pm2 start index.js --watch",
+    "stop-pm2": "cd backend && pm2 stop index.js",
+    "install-frontend": "cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "frontend": "cd frontend && npm run dev -- --host",
+    "frontend-preview": "cd frontend && npm run preview -- --host",
+    "atoms-project": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build-project": "concurrently \"npm run backend\" \"npm run frontend-preview\"",
+    "pm2-start-preview": "concurrently \"npm run start-pm2\" \"npm run frontend-preview\"",
+    "pm2-start-project": "concurrently \"npm run start-pm2\" \"npm run frontend\"",
+    "pm2-stop-project": "concurrently \"npm run stop-pm2\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.3"
+  }
+}
